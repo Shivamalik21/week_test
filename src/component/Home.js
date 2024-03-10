@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import {  FaCopy } from "react-icons/fa";
 const Home = () => {
 let uppercase1="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let lowercase1=uppercase1.toLowerCase();
@@ -10,7 +10,7 @@ const[lOWER,setlower]=useState(false);
 const[SYMBOL,setsymbol]=useState(false);
 const[NUMBER,setnumber]=useState(false);
 
-
+let data="";
  function myfunction(){
  if(UPPER!==true && lOWER!==true && SYMBOL!==true && NUMBER!==true ){
    alert("select CheckBox")
@@ -47,19 +47,34 @@ const[NUMBER,setnumber]=useState(false);
     }
 
     document.getElementById("passinpt").innerText=passcode;
+    data=passcode;
    }
-  
+ 
    
  }
+ function coppy(){
+    
+    if( data!==""){
+        navigator.clipboard.writeText( data);
+    }else{
+        alert("No Data for copy")
+    }
+ }
+
 
 
   return (
     <div style={{padding:"2% 5% 5% 5%"}}>
         <h1 style={{marginLeft:"35%", marginBottom:"5vw"}}>Password Generator</h1>
         <div style={{border:"00.1px solid grey", height:"7vh", backgroundColor:"rgb(240, 233, 233)"  }} id="passinpt"></div>
-    <input style={{width:"10%", height:"5vh", marginTop:"3vw"} } id="inptext"/>
+    <span id="span" onClick={coppy}><FaCopy/></span>
+    <div>
+        <h4 >Input length between 8 & 50:-</h4>
+    <input style={{width:"10%", height:"5vh", } } type="number" min="8"id="inptext"/>
+    </div>
     <div style={{display:"flex",flexDirection:"column", gap:"2vh", marginTop:"3vw"}}>
     <label for="uppercase"> 
+ 
   <input type="checkbox" id="uppercase"onChange={((e)=>{
    setKeyword(e.target.checked)
   }) }/>
@@ -81,7 +96,7 @@ const[NUMBER,setnumber]=useState(false);
    Add number</label>
  </div>
 
-<div style={{width:"100%", textAlign:"center", height:"6vh", color:"white", backgroundColor:"blue", paddingTop:"3vh", marginTop:"4vh"}} onClick={()=>{
+<div id="btn" style={{width:"100%", textAlign:"center", height:"6vh", color:"white", paddingTop:"3vh", marginTop:"4vh"}} onClick={()=>{
     myfunction()
 }}  >Generate Password</div>
     </div>

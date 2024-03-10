@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+#btn{
+  background-color: blue;
+  border-radius: 50px;
+}
+#btn:hover{
+  background-color: rgb(99, 214, 99);
+  cursor: pointer;
+}
+#span{
+  font-size: 25px;
+}
+#span:hover{
+  color: red;
+  cursor: pointer;
+  font-size: 30px;
 }
