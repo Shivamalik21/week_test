@@ -47,7 +47,7 @@ let data="";
     }
 
     document.getElementById("passinpt").innerText=passcode;
-    data=passcode;
+    data=document.getElementById("passinpt").innerText;
    }
  
    
@@ -56,6 +56,7 @@ let data="";
     
     if( data!==""){
         navigator.clipboard.writeText( data);
+        alert("DataCopy")
     }else{
         alert("No Data for copy")
     }
